@@ -73,11 +73,11 @@
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center pt-24 bg-[#e9ecef]">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
                 <span class="gradient-text-hero">Your Vision, Powered by Modern Android.</span>
             </h1>
             <p class="text-xl md:text-1.5xl text-gray-700 mb-6 font-light">
-               Delivering exceptional, high-performance apps with Kotlin and Jetpack Compose.
+                Delivering exceptional, high-performance apps with Kotlin and Jetpack Compose.
             </p>
             <a href="#contact" class="inline-block bg-gradient-blue text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform duration-300">Bring Your Ideas to Life</a>
         </div>
@@ -89,9 +89,9 @@
             <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">About Me</h2>
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-6 md:mb-0 text-center">
-                   
-                <!--    <img src="per_img.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/007bff/ffffff?text=Mona+Fathi';" alt="Profile" class="rounded-full shadow-lg mx-auto border-4 border-blue-500 w-64 h-64 md:w-80 md:h-80 object-cover">-->
-                    <img src="https://drive.google.com/file/d/1Xbzepzkckf2PI7WD8K4U2viy4R4rAXrD/view?usp=drive_link" onerror="this.onerror=null; this.src='https://placehold.co/400x400/007bff/ffffff?text=Mona+Fathi';" alt="Profile" class="rounded-full shadow-lg mx-auto border-4 border-blue-500 w-64 h-64 md:w-80 md:h-80 object-cover">
+                    <!-- Updated the image source to a relative path for use on GitHub -->
+                    <!-- You will need to create a folder named 'img' and place your profile picture inside it. -->
+                    <img src="./img/per_img" onerror="this.onerror=null; this.src='https://placehold.co/400x400/007bff/ffffff?text=Mona+Fathi';" alt="Profile" class="rounded-full shadow-lg mx-auto border-4 border-blue-500 w-64 h-64 md:w-80 md:h-80 object-cover">
                 </div>
                 <div class="md:w-1/2 md:pl-10">
                     <p class="text-lg text-gray-700 leading-relaxed">
@@ -171,33 +171,49 @@
         </div>
     </section>
 
-    <!-- Contact Me Section -->
-    <section id="contact" class="py-20 bg-white">
+    <!-- Contact Me Section - Updated with new design -->
+    <section id="contact" class="py-20 bg-gray-100">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">Contact Me</h2>
-            <div class="max-w-lg mx-auto text-center">
-                <p class="text-lg mb-6 text-gray-700">Feel free to reach out for collaborations or inquiries!</p>
-                <div class="space-y-4 mb-8">
-                    <p class="text-lg text-gray-800">
-                        <strong>Email:</strong> <a href="mailto:mona.fathi110@gmail.com" class="text-blue-500 hover:underline">your.email@example.com</a>
-                    </p>
-                   <!-- <p class="text-lg text-gray-800">
-                        <strong>Phone:</strong>+021121
-                    </p>-->
-                    <p class="text-lg text-gray-800">
-                        <strong>LinkedIn:</strong> <a href="#" class="text-blue-500 hover:underline">https://www.linkedin.com/in/monafathi/</a>
-                    </p>
-                    <p class="text-lg text-gray-800">
-                        <strong>Github:</strong> <a href="#" class="text-blue-500 hover:underline"https://github.com/mona-fathi</a>
-                    </p>
+            <div class="max-w-4xl mx-auto text-center p-8 bg-white rounded-xl shadow-lg">
+                <p class="text-lg text-gray-700 mb-8">Let's connect and discuss your next great idea. I'm always open to new projects and collaborations!</p>
+                
+                <!-- Contact methods container with a grid layout -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <!-- Email Card -->
+                    <a href="mailto:your.email@example.com" class="p-6 bg-gray-50 rounded-lg card-hover transition-transform duration-300 flex flex-col items-center justify-center space-y-4">
+                        <!-- Email icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-800">Email</h3>
+                    </a>
+                    
+                    <!-- LinkedIn Card -->
+                    <a href="#" class="p-6 bg-gray-50 rounded-lg card-hover transition-transform duration-300 flex flex-col items-center justify-center space-y-4">
+                        <!-- LinkedIn icon (a simple placeholder) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.568c0-1.328-.027-3.04-.1.157-3.04-1.328-5.568.157-3.04-1.328h-3.554V20.452H3.344v-9.356h3.411v1.54h.046a3.743 3.743 0 013.364-1.85c3.606 0 4.267 2.37 4.267 5.426V20.45zM3.554 7.5c-1.173 0-2.122-.953-2.122-2.124 0-1.17 0-2.12.949-2.12h.001c1.172 0 2.122.95 2.122 2.12s-.949 2.12-2.121 2.12z" fill="#0A66C2" />
+                            <path d="M20.447 20.452h-3.554v-5.568c0-1.328-.027-3.04-.157-3.04-1.328-.157-5.568.157-3.04-1.328h-3.554V20.452H3.344v-9.356h3.411v1.54h.046c.556-1.059 1.25-1.579 2.106-1.854V10.45c-1.42 0-2.486.86-2.923 2.062h-.01c-.13-.393-.205-.836-.205-1.314V1.597c0-1.17.95-2.12 2.121-2.12 1.173 0 2.124.95 2.124 2.12s-.95 2.12-2.121 2.12zM3.554 7.5c-1.173 0-2.122-.953-2.122-2.124 0-1.17.95-2.12.949-2.12h.001c1.172 0 2.122.95 2.122 2.12s-.949 2.12-2.121 2.12z" />
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-800">LinkedIn</h3>
+                    </a>
+
+                    <!-- GitHub Card -->
+                    <a href="https://github.com/yourprofile" class="p-6 bg-gray-50 rounded-lg card-hover transition-transform duration-300 flex flex-col items-center justify-center space-y-4">
+                        <!-- GitHub icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.577v-2.02c-3.342.727-4.04-1.612-4.04-1.612-.546-1.385-1.332-1.755-1.332-1.755-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.835 2.809 1.306 3.492 1.002.108-.778.419-1.306.762-1.605-2.665-.304-5.466-1.333-5.466-5.94 0-1.312.466-2.385 1.23-3.22-.124-.303-.535-1.52.117-3.176 0 0 1.003-.322 3.287 1.23a11.53 11.53 0 016 0c2.284-1.552 3.287-1.23 3.287-1.23.652 1.656.24 2.873.116 3.176.766.835 1.23 1.908 1.23 3.22 0 4.619-2.806 5.63-5.474 5.93.43.37.823 1.102.823 2.222v3.292c0 .317.21.69.825.577C20.565 21.8 24 17.302 24 12c0-6.627-5.373-12-12-12z" clip-rule="evenodd" />
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-800">GitHub</h3>
+                    </a>
                 </div>
-                <a href="mailto:your.email@example.com" class="inline-block bg-gradient-blue text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform duration-300">Send a Message</a>
             </div>
         </div>
     </section>
     
     <!-- Footer -->
-    <footer class="bg-white text-gray-500 py-6">
+    <footer class="bg-gray-100 text-gray-500 py-6">
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2024 Mona Fathi. Built with passion for Android development.</p>
         </div>
