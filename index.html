@@ -1,172 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mona Fathi | Android Developer</title>
     <!-- Use Tailwind CSS for a modern, responsive design -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use a clean, professional font from Google Fonts -->
+    <!-- Use the "Inter" font for a clean, professional look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f2f5; /* Light gray background */
-            color: #1f2937; /* Dark gray text color */
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background */
+            color: #212529; /* Dark text color */
         }
-        .bg-primary {
-            background-color: #4f46e5;
+        .gradient-text-hero {
+            background-image: linear-gradient(to right, #007bff, #00bfff); /* Blue gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800; /* Extra bold */
+            text-shadow: 2px 2px 8px rgba(0, 123, 255, 0.2);
         }
-        .text-primary {
-            color: #4f46e5;
+        .bg-gradient-blue {
+            background-image: linear-gradient(to right, #007bff, #00bfff); /* Blue gradient */
         }
-        .border-primary {
-            border-color: #4f46e5;
+        .text-navy-mona {
+            color: #003366; /* A deep navy blue for a professional look */
         }
-        .shadow-lg-primary {
-            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.1), 0 4px 6px -2px rgba(79, 70, 229, 0.05);
+        .card-shadow-light {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header & Navigation -->
-    <header class="bg-white text-gray-700 p-6 shadow-md fixed w-full z-10">
-        <nav class="container mx-auto flex justify-between items-center px-4">
-            <a href="#" class="text-2xl font-bold text-primary">Mona Fathi</a>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold text-navy-mona tracking-wide">Mona.Dev</a>
             <div class="hidden md:flex space-x-6">
-                <a href="#about" class="hover:text-primary transition-colors duration-300">About</a>
-                <a href="#education" class="hover:text-primary transition-colors duration-300">Education</a>
-                <a href="#skills" class="hover:text-primary transition-colors duration-300">Skills</a>
-                <a href="#services" class="hover:text-primary transition-colors duration-300">Services</a>
-                <a href="#contact" class="hover:text-primary transition-colors duration-300">Contact</a>
+                <a href="#about" class="hover:text-blue-600 transition">About Me</a>
+                <a href="#services" class="hover:text-blue-600 transition">Services</a>
+                <a href="#education" class="hover:text-blue-600 transition">Education</a>
+                <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
             </div>
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none text-blue-600">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white mt-4 p-4 rounded-lg shadow-md">
-            <a href="#about" class="block py-2 hover:bg-gray-100 rounded px-2 transition-colors duration-300">About</a>
-            <a href="#education" class="block py-2 hover:bg-gray-100 rounded px-2 transition-colors duration-300">Education</a>
-            <a href="#skills" class="block py-2 hover:bg-gray-100 rounded px-2 transition-colors duration-300">Skills</a>
-            <a href="#services" class="block py-2 hover:bg-gray-100 rounded px-2 transition-colors duration-300">Services</a>
-            <a href="#contact" class="block py-2 hover:bg-gray-100 rounded px-2 transition-colors duration-300">Contact</a>
         </div>
-    </header>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white p-4">
+            <a href="#about" class="block py-2 text-lg hover:text-blue-600 rounded px-2 transition-colors duration-300">About Me</a>
+            <a href="#services" class="block py-2 text-lg hover:text-blue-600 rounded px-2 transition-colors duration-300">Services</a>
+            <a href="#education" class="block py-2 text-lg hover:text-blue-600 rounded px-2 transition-colors duration-300">Education</a>
+            <a href="#skills" class="block py-2 text-lg hover:text-blue-600 rounded px-2 transition-colors duration-300">Skills</a>
+            <a href="#contact" class="block py-2 text-lg hover:text-blue-600 rounded px-2 transition-colors duration-300">Contact</a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-24 bg-[#e9ecef]">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-4 leading-tight">
+                <span class="gradient-text-hero">Crafting Innovative and User-Centric Mobile Experiences</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-700 mb-6 font-light">
+                Your journey to a robust and user-friendly mobile experience starts here.
+            </p>
+            <a href="#contact" class="inline-block bg-gradient-blue text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform duration-300">Bring Your Ideas to Life</a>
+        </div>
+    </section>
 
-    <main class="container mx-auto p-8 pt-24">
-
-        <!-- About Me Section -->
-        <section id="about" class="min-h-screen flex flex-col justify-center items-center py-16 text-center">
-            <div class="max-w-4xl space-y-6 bg-white p-8 rounded-xl shadow-lg">
-                <h1 class="text-4xl md:text-6xl font-bold text-primary leading-tight">Mona Fathi</h1>
-                <h2 class="text-2xl md:text-3xl font-semibold text-gray-800">Your Android Development Partner for Secure & Stable Apps</h2>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed">
-                    Hello, I'm Mona. My journey into Android development began with a fascination for creating powerful tools that are intuitive and reliable. I believe that a great app isn't just about functionality—it's about a seamless user experience built on a foundation of security and stability. I have spent years honing my craft, learning not just how to build features, but how to build them the right way, with robust code and a focus on long-term maintainability.
-                </p>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
-                    My unique selling point is my commitment to developing secure and stable applications from the ground up. I have a deep understanding of Android's security best practices and a rigorous approach to testing and bug prevention. This means you get a product that not only looks great and works flawlessly but also protects your users' data and stands the test of time.
-                </p>
-                <div class="mt-8">
-                    <a href="#contact" class="inline-block bg-primary hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-full shadow-lg-primary transition-all duration-300 transform hover:scale-105">Let's Build Something Great</a>
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-6 md:mb-0 text-center">
+                    <img src="https://placehold.co/400x400/007bff/ffffff?text=Mona+Fathi" onerror="this.onerror=null; this.src='https://placehold.co/400x400/007bff/ffffff?text=Mona+Fathi';" alt="Profile" class="rounded-full shadow-lg mx-auto border-4 border-blue-500 w-64 h-64 md:w-80 md:h-80 object-cover">
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        My professional journey started in the field of IT. This experience ignited my passion for creating solutions that directly impact users. Now, as a dedicated Android developer, I use my technical expertise in Kotlin, Java, and modern frameworks to build high-performance, user-friendly mobile applications. The skills and perspective from my IT background allow me to craft apps that are not only innovative but also stable and secure.
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Education Section -->
-        <section id="education" class="py-16">
-            <h2 class="text-4xl font-bold text-center mb-12 text-primary">Education</h2>
-            <div class="max-w-4xl mx-auto space-y-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary">
-                    <h3 class="text-2xl font-semibold text-gray-800">Your Degree/Certificate Name</h3>
-                    <p class="text-lg text-gray-600">University/Institution Name, City</p>
-                    <p class="text-gray-500">Dates of Attendance (e.g., 2018 - 2022)</p>
+    <!-- Offered Services Section -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">Offered Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Android App Development</h3>
+                    <p class="text-gray-600">Building custom Android applications using Kotlin and Java, tailored to your business needs.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary">
-                    <h3 class="text-2xl font-semibold text-gray-800">Another Degree or Certification</h3>
-                    <p class="text-lg text-gray-600">Institution Name, City</p>
-                    <p class="text-gray-500">Dates of Attendance (e.g., 2023)</p>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">UI/UX Design</h3>
+                    <p class="text-gray-600">Designing intuitive and visually appealing interfaces for Android apps with Material Design.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">App Optimization</h3>
+                    <p class="text-gray-600">Enhancing app performance, scalability, and compatibility across Android devices.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="py-16">
-            <h2 class="text-4xl font-bold text-center mb-12 text-primary">Skills</h2>
-            <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-4 bg-white p-8 rounded-xl shadow-lg">
-                <span class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium">Android SDK</span>
-                <span class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium">Kotlin</span>
-                <span class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium">Java</span>
-                <span class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium">Firebase</span>
-                <span class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium">REST APIs</span>
-                <span class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium">UI/UX Design</span>
-                <span class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium">Git & GitHub</span>
-            </div>
-        </section>
-        
-        <!-- Offered Services Section -->
-        <section id="services" class="py-16">
-            <h2 class="text-4xl font-bold text-center mb-12 text-primary">Offered Services</h2>
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Service Card 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Custom Android App Development</h3>
-                    <p class="text-gray-600">I build bespoke Android applications from the ground up, tailored to your specific business needs and vision.</p>
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">Education</h2>
+            <div class="space-y-6">
+                <div class="bg-gray-100 p-6 rounded-lg card-hover border-l-4 border-blue-500 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold text-gray-800">Android Native Development Track</h3>
+                    <p class="text-gray-600">Digital Egypt Pioneers Initiative</p>
+                    <p class="text-gray-600 mt-2">Gained expertise in Java, Kotlin, UI/UX design, API integration, and freelancing skills.</p>
                 </div>
-                <!-- Service Card 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">App Security Auditing</h3>
-                    <p class="text-gray-600">I'll review your existing Android application to identify and patch vulnerabilities, ensuring your users' data is safe.</p>
+                <div class="bg-gray-100 p-6 rounded-lg card-hover border-l-4 border-blue-500 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold text-gray-800">Bachelor of Engineering in Communications and Electronics</h3>
+                    <p class="text-gray-600">Aswan University</p>
                 </div>
-                <!-- Service Card 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Performance Optimization</h3>
-                    <p class="text-gray-600">I can analyze your app's performance and optimize its code to ensure a fast, stable, and smooth user experience.</p>
-                </div>
-                <!-- Service Card 4 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Consultation & Mentoring</h3>
-                    <p class="text-gray-600">I offer one-on-one consultation and mentoring to help you or your team navigate complex Android development challenges.</p>
+                <div class="bg-gray-100 p-6 rounded-lg card-hover border-l-4 border-blue-500 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold text-gray-800">A+, N+ Maintenance Program</h3>
+                    <p class="text-gray-600">Institute of Engineering and Technology</p>
+                    <p class="text-gray-600 mt-2">Studied CompTIA A+, CompTIA Network+, Windows Server 2019, Linux fundamentals, and security systems.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-16">
-            <h2 class="text-4xl font-bold text-center mb-12 text-primary">Contact Me</h2>
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-                <p class="text-center mb-6 text-gray-600">I'm excited to connect! Please fill out the form below or reach out via email.</p>
-                <form>
-                    <div class="mb-4">
-                        <label for="name" class="block text-sm font-medium mb-1 text-gray-700">Name</label>
-                        <input type="text" id="name" name="name" class="w-full p-3 rounded-lg bg-gray-100 border border-gray-300 focus:border-primary focus:ring-primary transition-colors duration-300" placeholder="Your Name">
-                    </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium mb-1 text-gray-700">Email</label>
-                        <input type="email" id="email" name="email" class="w-full p-3 rounded-lg bg-gray-100 border border-gray-300 focus:border-primary focus:ring-primary transition-colors duration-300" placeholder="your.email@example.com">
-                    </div>
-                    <div class="mb-4">
-                        <label for="message" class="block text-sm font-medium mb-1 text-gray-700">Message</label>
-                        <textarea id="message" name="message" rows="4" class="w-full p-3 rounded-lg bg-gray-100 border border-gray-300 focus:border-primary focus:ring-primary transition-colors duration-300" placeholder="Your message..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-primary hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg-primary transition-all duration-300 transform hover:scale-105">Send Message</button>
-                </form>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800">Kotlin</h3>
+                    <p class="text-gray-600">Expert in writing clean, efficient, and modern Android apps using Kotlin.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800">Java</h3>
+                    <p class="text-gray-600">Proficient in building robust Android applications with Java.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800">Jetpack Compose</h3>
+                    <p class="text-gray-600">Skilled in creating modern, declarative UI for Android apps.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800">RESTful APIs</h3>
+                    <p class="text-gray-600">Experienced in integrating and consuming APIs for dynamic app functionality.</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
-
+    <!-- Contact Me Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">Contact Me</h2>
+            <div class="max-w-lg mx-auto text-center">
+                <p class="text-lg mb-6 text-gray-700">Feel free to reach out for collaborations or inquiries!</p>
+                <div class="space-y-4 mb-8">
+                    <p class="text-lg text-gray-800">
+                        <strong>Email:</strong> <a href="mailto:your.email@example.com" class="text-blue-500 hover:underline">your.email@example.com</a>
+                    </p>
+                    <p class="text-lg text-gray-800">
+                        <strong>Phone:</strong> (123) 456-7890
+                    </p>
+                    <p class="text-lg text-gray-800">
+                        <strong>LinkedIn:</strong> <a href="#" class="text-blue-500 hover:underline">linkedin.com/in/yourprofile</a>
+                    </p>
+                </div>
+                <a href="mailto:your.email@example.com" class="inline-block bg-gradient-blue text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform duration-300">Send a Message</a>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 text-center p-6 mt-16">
-        <p>&copy; 2024 Mona Fathi. All rights reserved.</p>
+    <footer class="bg-white text-gray-500 py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Mona Fathi. Built with passion for Android development.</p>
+        </div>
     </footer>
-
+    
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -181,7 +212,6 @@
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
