@@ -1,248 +1,727 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mona Fathi | Android Developer</title>
-    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <title>Mona.Dev</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use the "Inter" font for a clean, professional look -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa; /* Light background */
-            color: #212529; /* Dark text color */
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #f6f8fb, #ffffff);
+            color: #2d3748;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
-        .gradient-text-hero {
-            background-image: linear-gradient(to right, #007bff, #00bfff); /* Blue gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-            font-weight: 800; /* Extra bold */
-            text-shadow: 2px 2px 8px rgba(0, 123, 255, 0.2);
+
+        .bg-circles {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(224, 242, 254, 0.8);
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: -1;
+            animation: float 10s ease-in-out infinite;
         }
-        .bg-gradient-blue {
-            background-image: linear-gradient(to right, #007bff, #00bfff); /* Blue gradient */
+
+        .circle-1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .circle-2 { top: 20%; right: 5%; animation-delay: -5s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 40px); }
+            100% { transform: translate(0, 0); }
         }
-        .text-navy-mona {
-            color: #003366; /* A deep navy blue for a professional look */
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
         }
-        .card-shadow-light {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(to right, #4c51bf, #805ad5);
+            border-radius: 9999px;
         }
-        .card-hover:hover {
+
+        .about-image-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #497dff, #ec45a9);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-text {
+            position: absolute;
+            background-color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1a6ac9;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            animation: float-around 20s ease-in-out infinite;
+        }
+
+        .floating-text.top-right {
+            top: 20px;
+            right: -20px;
+            animation-delay: 0s;
+        }
+
+        .floating-text.bottom-left {
+            bottom: 20px;
+            left: -20px;
+            animation-delay: -10s;
+        }
+        
+        @keyframes float-around {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(20px, -10px); }
+            50% { transform: translate(-10px, 20px); }
+            75% { transform: translate(10px, -20px); }
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .code-card {
+            background-color: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .code-card-header {
+            background-color: #f7fafc;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .code-card-body {
+            padding: 1.5rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: #4a5568;
+            background-color: #f7fafc;
+        }
+
+        .code-card-footer {
+            background-color: #f7fafc;
+            border-bottom-left-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-card {
+            background-color: #f7f9fc;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
+        
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+            color: #4a5568;
+            line-height: 2.5;
+        }
+        
+        .contact-card {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            width: 4rem;
+            height: 4rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon.email { background-color: #ebf8ff; }
+        .contact-icon.linkedin { background-color: #e6f7ff; }
+        .contact-icon.github { background-color: #f7f9fc; }
+
+        .contact-icon .fas, .fab { font-size: 2.5rem; }
+        .contact-icon .fa-envelope { color: #4299e1; }
+        .contact-icon .fa-linkedin { color: #3182ce; }
+        .contact-icon .fa-github { color: #2d3748; }
+
+        /* Styles for the sticky navigation bar */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .sticky-nav.is-visible {
+            transform: translateY(0);
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.is-open {
+            transform: translateY(0);
+        }
+        
+        .mobile-menu-links a {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        
+        .mobile-menu-links a:hover {
+            color: #1a6ac9;
+        }
+        
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-gray-100 text-gray-800">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-navy-mona tracking-wide">Mona.Dev</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#about" class="hover:text-blue-600 transition">About Me</a>
-                <a href="#services" class="hover:text-blue-600 transition">Services</a>
-                <a href="#education" class="hover:text-blue-600 transition">Education</a>
-                <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
-                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu hidden">
+    <button id="close-menu" class="absolute top-8 right-8 text-4xl text-gray-600 hover:text-gray-900 transition-colors">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="mobile-menu-links flex flex-col items-center">
+        <a href="#about" class="hover:text-gray-500 transition-colors">About Me</a>
+        <a href="#services" class="hover:text-gray-500 transition-colors">Services</a>
+        <a href="#education" class="hover:text-gray-500 transition-colors">Education</a>
+        <a href="#skills" class="hover:text-gray-500 transition-colors">Skills</a>
+        <a href="#contact" class="hover:text-gray-500 transition-colors">Contact</a>
+    </div>
+</div>
+
+<!-- Header/Hero Section -->
+<header id="hero-header" class="pt-10 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center mb-16">
+            <div class="text-3xl font-extrabold flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-xml text-blue-500 animate-glow" data-lov-id="src/components/CreativeHeader.tsx:28:12" data-lov-name="Code2" data-component-path="src/components/CreativeHeader.tsx" data-component-line="28" data-component-file="CreativeHeader.tsx" data-component-name="Code2" data-component-content="%7B%22className%22%3A%22text-primary%20animate-glow%22%7D"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg> 
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#497dff] to-[#ec45a9]">Mona.Dev</span>
             </div>
-            <!-- Mobile Menu Button  b-->
-            <button id="mobile-menu-button" class="md:hidden focus:outline-none text-blue-600">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-6 text-lg">
+                <a href="#about" class="hover:text-gray-500 transition-colors">About Me</a>
+                <a href="#services" class="hover:text-gray-500 transition-colors">Services</a>
+                <a href="#education" class="hover:text-gray-500 transition-colors">Education</a>
+                <a href="#skills" class="hover:text-gray-500 transition-colors">Skills</a>
+                <a href="#contact" class="hover:text-gray-500 transition-colors">Contact</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-2xl text-gray-600 hover:text-gray-900 transition-colors">
+                <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white p-4">
-            <a href="#about" class="block py-2 text-lg hover:text-blue-600 rounded px-2 transition-colors duration-300">About Me</a>
-            <a href="#services" class="block py-2 text-lg hover:text-blue-600 rounded px-2 transition-colors duration-300">Services</a>
-            <a href="#education" class="block py-2 text-lg hover:text-blue-600 rounded px-2 transition-colors duration-300">Education</a>
-            <a href="#skills" class="block py-2 text-lg hover:text-blue-600 rounded px-2 transition-colors duration-300">Skills</a>
-            <a href="#contact" class="block py-2 text-lg hover:text-blue-600 rounded px-2 transition-colors duration-300">Contact</a>
+        <div class="flex flex-col md:flex-row items-center justify-between pt-8">
+            <div class="w-full md:w-1/2 text-center md:text-left mb-10 md:mb-0 relative">
+                <div class="bg-circles circle-1"></div>
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#497dff] to-[#ec45a9]">Your Vision,</span><br>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#497dff] to-[#ec45a9]">Powered by</span><br>
+                    <span id="dynamic-text" class="text-blue-500">Performance Optimization</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-10 max-w-lg">
+                    Creating exceptional, high-performance mobile experiences with
+                    <span class="text-blue-600">Kotlin</span> and <span class="text-blue-600">Jetpack Compose</span>.
+                </p>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#contact" class="bg-[#1f7ae2] text-white px-6 py-3 rounded-full font-bold shadow-lg hover:bg-[#1a6ac9] transition duration-300 flex items-center space-x-2">
+                        <span>Let's Create Magic</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center md:justify-end relative">
+                <div class="bg-circles circle-2"></div>
+                <div class="code-card w-full max-w-md">
+                    <div class="code-card-header">
+                        <div class="flex space-x-2">
+                            <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                            <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        </div>
+                    </div>
+                    <div class="code-card-body font-mono">
+                        <img src="imgs/androidapps2.avif">
+                    </div>
+                    <div class="code-card-footer">
+                        <span class="text-xs font-semibold uppercase text-gray-500">Modern + Fast + Secure</span>
+                        <i class="fa-solid fa-wifi text-gray-500"></i>
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
-    
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center pt-24 bg-[#e9ecef]">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-7xl font-extrabold mb-4 leading-tight">
-                <span class="gradient-text-hero">Your Vision, Powered by Modern Android.</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-700 mb-6 font-light">
-                Delivering exceptional, high-performance apps with Kotlin and Jetpack Compose.
+    </div>
+</header>
+
+<!-- Sticky Navigation Bar -->
+<nav id="sticky-nav" class="sticky-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        <div class="text-xl font-extrabold flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-xml text-blue-500" data-lov-id="src/components/CreativeHeader.tsx:28:12" data-lov-name="Code2" data-component-path="src/components/CreativeHeader.tsx" data-component-line="28" data-component-file="CreativeHeader.tsx" data-component-name="Code2" data-component-content="%7B%22className%22%3A%22text-primary%20animate-glow%22%7D"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg> 
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#497dff] to-[#ec45a9]">Mona.Dev</span>
+        </div>
+        <!-- Desktop Sticky Nav Links -->
+        <div class="nav-links space-x-6 text-lg hidden md:flex">
+            <a href="#about" class="hover:text-gray-500 transition-colors">About Me</a>
+            <a href="#services" class="hover:text-gray-500 transition-colors">Services</a>
+            <a href="#education" class="hover:text-gray-500 transition-colors">Education</a>
+            <a href="#skills" class="hover:text-gray-500 transition-colors">Skills</a>
+            <a href="#contact" class="hover:text-gray-500 transition-colors">Contact</a>
+        </div>
+        <!-- Mobile Menu Button for Sticky Nav -->
+        <button id="sticky-mobile-menu-button" class="md:hidden text-2xl text-gray-600 hover:text-gray-900 transition-colors">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- About Me Section -->
+<section id="about" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center">
+            <h2 class="section-title">
+                About <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#497dff] to-[#ec45a9]">Me</span>
+            </h2>
+        </div>
+        <div class="flex flex-col md:flex-row items-center md:space-x-12">
+            <div class="w-full md:w-1/2 flex justify-center mb-10 md:mb-0 relative">
+                <div class="about-image-container">
+                    <!-- This is the corrected section to add your image -->
+                    <img src="img/mona_profile.jpg"
+                         alt="Mona Fathi"
+                         class="w-full h-full rounded-full object-cover shadow-2xl">
+                    <div class="floating-text top-right">
+                        Kotlin Expert
+                    </div>
+                    <div class="floating-text bottom-left">
+                        UI/UX Lover
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-left pt-20">
+                <p class="text-lg text-gray-600 mb-6">
+                    My professional journey started in the field of IT. This experience ignited my passion for creating solutions that directly impact users.
+                </p>
+                <p class="text-lg text-gray-600 mb-6">
+                    Now, as a dedicated Android developer, I use my technical expertise in Kotlin, Java, and modern frameworks to build high-performance, user-friendly mobile applications.
+                </p>
+                <p class="text-lg text-gray-600 mb-6">
+                    The skills and perspective from my IT background allow me to craft apps that are not only innovative but also stable and secure.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center flex-col items-center mb-12">
+            <h2 class="section-title">
+                Services <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#497dff] to-[#ec45a9]">I Offer</span>
+            </h2>
+            <p class="text-center text-lg text-gray-600 max-w-2xl">
+                Transforming your ideas into powerful Android applications
             </p>
-            <a href="#contact" class="inline-block bg-gradient-blue text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform duration-300">Bring Your Ideas to Life</a>
         </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-6 md:mb-0 text-center">
-                    <!-- The image source has been updated to match the file you uploaded to GitHub -->
-                    <img src="./img/" onerror="this.onerror=null; this.src='https://placehold.co/400x400/007bff/ffffff?text=Mona+Fathi';" alt="Profile" class="rounded-full shadow-lg mx-auto border-4 border-blue-500 w-64 h-64 md:w-80 md:h-80 object-cover">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <!-- Service Card 1 -->
+            <div class="p-6 bg-white rounded-3xl card-shadow">
+                <div class="w-16 h-16 bg-[#ebf8ff] rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-brands fa-android text-4xl text-blue-500"></i>
                 </div>
-                <div class="md:w-1/2 md:pl-10">
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        My professional journey started in the field of IT. This experience ignited my passion for creating solutions that directly impact users. Now, as a dedicated Android developer, I use my technical expertise in Kotlin, Java, and modern frameworks to build high-performance, user-friendly mobile applications. The skills and perspective from my IT background allow me to craft apps that are not only innovative but also stable and secure.
-                    </p>
+                <h3 class="text-2xl font-semibold mb-2">Android App Development</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Building custom Android applications using Kotlin and Java, tailored to your business needs.
+                </p>
+            </div>
+            <!-- Service Card 2 -->
+            <div class="p-6 bg-white rounded-3xl card-shadow">
+                <div class="w-16 h-16 bg-[#fefcbf] rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-palette text-4xl text-yellow-500"></i>
                 </div>
+                <h3 class="text-2xl font-semibold mb-2">UI/UX Design</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Designing intuitive and visually appealing interfaces for Android apps with Material Design.
+                </p>
+            </div>
+            <!-- Service Card 3 -->
+            <div class="p-6 bg-white rounded-3xl card-shadow">
+                <div class="w-16 h-16 bg-[#f7e0e0] rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-bolt text-4xl text-red-500"></i>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2">App Optimization</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Enhancing app performance, scalability, and compatibility across Android devices.
+                </p>
+            </div>
+            <!-- Service Card 4 (New) -->
+            <div class="p-6 bg-white rounded-3xl card-shadow">
+                <div class="w-16 h-16 bg-[#e9f8e9] rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-cloud text-4xl text-green-500"></i>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2">Backend & Cloud Integration</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Integrating powerful backend solutions like Firebase for user authentication, real-time databases, and cloud storage.
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Offered Services Section -->
-    <section id="services" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">Offered Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Android App Development</h3>
-                    <p class="text-gray-600">Building custom Android applications using Kotlin and Java, tailored to your business needs.</p>
+<!-- My Learning Journey Section -->
+<section id="education" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center flex-col items-center mb-12">
+            <h2 class="section-title">
+                My Learning <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#497dff] to-[#ec45a9]">Journey</span>
+            </h2>
+            <p class="text-center text-lg text-gray-600 max-w-2xl">
+                Building expertise through continuous learning and hands-on experience
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+            <!-- Timeline Item 1 -->
+            <div class="p-6 bg-white rounded-3xl card-shadow">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 bg-[#fefcbf] rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-microchip text-yellow-500"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold">Android Native Development Track</h4>
+                        <p class="text-sm text-gray-500">Digital Egypt Pioneers Initiative</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">UI/UX Design</h3>
-                    <p class="text-gray-600">Designing intuitive and visually appealing interfaces for Android apps with Material Design.</p>
+                <p class="text-gray-600">
+                    Gained expertise in Java, Kotlin, UI/UX design, API integration, and freelancing skills.
+                </p>
+                       
+            </div>
+            <!-- Timeline Item 2 -->
+            <div class="p-6 bg-white rounded-3xl card-shadow">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 bg-[#ebf8ff] rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-book-open text-blue-500"></i>
+                    </div>
+<div>
+ <h4 class="text-lg font-semibold">A+, N+ Maintenance Program</h4>
+                        <p class="text-sm text-gray-500">Institute of Engineering and Technology</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">App Optimization</h3>
-                    <p class="text-gray-600">Enhancing app performance, scalability, and compatibility across Android devices.</p>
+                <p class="text-gray-600">
+                    Studied CompTIA A++, CompTIA Network+, Windows Server 2019, Linux fundamentals, and security systems.
+                </p>      
+            </div>
+            <!-- Timeline Item 3 -->
+            <div class="p-6 bg-white rounded-3xl card-shadow">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 bg-[#e9f8e9] rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-graduation-cap text-green-500"></i>
+                    </div>
+                   <div>
+                        <h4 class="text-lg font-semibold">Bachelor of Engineering in Communications and Electronics</h4>
+                        <p class="text-sm text-gray-500">Aswan University</p>
+                    </div>
                 </div>
+                <p class="text-gray-600">
+                    Comprehensive engineering education with focus on communications and electronics systems.
+                </p> 
             </div>
         </div>
-    </section>
+        <div class="flex justify-center mt-12 text-blue-500">
+            <a href="#" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-bold shadow-lg hover:bg-gray-300 transition duration-300 flex items-center space-x-2">
+                <i class="fa-solid fa-arrow-down text-blue-500"></i>
+                <span class="text-blue-500">Always Learning, Always Growing</span>
+            </a>
+        </div>
+    </div>
+</section>
 
-    <!-- Education Section -->
-    <section id="education" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">Education</h2>
-            <div class="space-y-6">
-                <div class="bg-gray-100 p-6 rounded-lg card-hover border-l-4 border-blue-500 transition-transform duration-300">
-                    <h3 class="text-2xl font-semibold text-gray-800">Android Native Development Track</h3>
-                    <p class="text-gray-600">Digital Egypt Pioneers Initiative</p>
-                    <p class="text-gray-600 mt-2">Gained expertise in Java, Kotlin, UI/UX design, API integration, and freelancing skills.</p>
-                </div>
-                <div class="bg-gray-100 p-6 rounded-lg card-hover border-l-4 border-blue-500 transition-transform duration-300">
-                    <h3 class="text-2xl font-semibold text-gray-800">Bachelor of Engineering in Communications and Electronics</h3>
-                    <p class="text-gray-600">Aswan University</p>
-                </div>
-                <div class="bg-gray-100 p-6 rounded-lg card-hover border-l-4 border-blue-500 transition-transform duration-300">
-                    <h3 class="text-2xl font-semibold text-gray-800">A+, N+ Maintenance Program</h3>
-                    <p class="text-gray-600">Institute of Engineering and Technology</p>
-                    <p class="text-gray-600 mt-2">Studied CompTIA A+, CompTIA Network+, Windows Server 2019, Linux fundamentals, and security systems.</p>
-                </div>
+<!-- Technical Skills Section -->
+<section id="skills" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center flex-col items-center mb-12">
+            <h2 class="section-title">
+                Technical <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#497dff] to-[#ec45a9]">Skills</span>
+            </h2>
+            <p class="text-center text-lg text-gray-600 max-w-2xl">
+                Mastering the tools and technologies that power modern Android development
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Languages Card -->
+            <div class="skill-card">
+                <h3 class="text-xl font-bold text-blue-500 mb-4">Languages</h3>
+                <ul class="skill-list">
+                    <li>Java</li>
+                    <li>Kotlin</li>
+                    <li>XML</li>
+                </ul>
+            </div>
+            <!-- Frameworks & Libraries Card -->
+            <div class="skill-card">
+                <h3 class="text-xl font-bold text-blue-500 mb-4">Frameworks & Libraries</h3>
+                <ul class="skill-list">
+                    <li>Android SDK</li>
+                    <li>Jetpack Compose</li>
+                    <li>Retrofit</li>
+                    <li>Room Persistence</li>
+                </ul>
+            </div>
+            <!-- Tools & Concepts Card -->
+            <div class="skill-card">
+                <h3 class="text-xl font-bold text-blue-500 mb-4">Tools & Concepts</h3>
+                <ul class="skill-list">
+                    <li>Git</li>
+                    <li>MVVM Architecture</li>
+                    <li>Dependency Injection</li>
+                    <li>Firebase</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Kotlin</h3>
-                    <p class="text-gray-600">Expert in writing clean, efficient, and modern Android apps using Kotlin.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Java</h3>
-                    <p class="text-gray-600">Proficient in building robust Android applications with Java.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Jetpack Compose</h3>
-                    <p class="text-gray-600">Skilled in creating modern, declarative UI for Android apps.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover border-l-4 border-blue-500 transition-transform duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">RESTful APIs</h3>
-                    <p class="text-gray-600">Experienced in integrating and consuming APIs for dynamic app functionality.</p>
-                </div>
+<!-- Let's Connect Section -->
+<section id="contact" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center flex-col items-center mb-12">
+            <h2 class="section-title">
+                Let's <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#497dff] to-[#ec45a9]">Connect</span>
+            </h2>
+            <p class="text-center text-lg text-gray-600 max-w-2xl">
+                Ready to bring your Android app vision to life? I'm always open to discussing new projects, creative ideas, and opportunities to be part of your success story.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Email Card -->
+            <div class="contact-card">
+                <a href="mailto:mona.fathi110@gmail.com" class="flex flex-col items-center">
+                    <div class="contact-icon email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">Email</h3>
+                    <p class="text-gray-500 mb-4">Drop me a line anytime</p>
+                </a>
+            </div>
+            <!-- LinkedIn Card -->
+            <div class="contact-card">
+                <a href="https://www.linkedin.com/in/monafathi" target="_blank" class="flex flex-col items-center">
+                    <div class="contact-icon linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">LinkedIn</h3>
+                    <p class="text-gray-500 mb-4">Let's connect professionally</p>
+                </a>
+            </div>
+            <!-- GitHub Card -->
+            <div class="contact-card">
+                <a href="https://github.com/mona-fathi" target="_blank" class="flex flex-col items-center">
+                    <div class="contact-icon github">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">GitHub</h3>
+                    <p class="text-gray-500 mb-4">Check out my repositories</p>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Me Section - Updated with new design -->
-    <section id="contact" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 text-blue-600">Contact Me</h2>
-            <div class="max-w-4xl mx-auto text-center p-8 bg-white rounded-xl shadow-lg">
-                <p class="text-lg text-gray-700 mb-8">Let's connect and discuss your next great idea. I'm always open to new projects and collaborations!</p>
-                
-                <!-- Contact methods container with a grid layout -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <!-- Email Card -->
-                    <a href="mailto:mona.fathi110@gmail.com" class="p-6 bg-gray-50 rounded-lg card-hover transition-transform duration-300 flex flex-col items-center justify-center space-y-4">
-                        <!-- Email icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                        <h3 class="text-xl font-semibold text-gray-800">Email</h3>
-                    </a>
-                    
-                    <!-- LinkedIn Card -->
-                    <a href="https://www.linkedin.com/in/monafathi/" class="p-6 bg-gray-50 rounded-lg card-hover transition-transform duration-300 flex flex-col items-center justify-center space-y-4">
-                        <!-- LinkedIn icon (a simple placeholder) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.568c0-1.328-.027-3.04-.1.157-3.04-1.328-5.568.157-3.04-1.328h-3.554V20.452H3.344v-9.356h3.411v1.54h.046a3.743 3.743 0 013.364-1.85c3.606 0 4.267 2.37 4.267 5.426V20.45zM3.554 7.5c-1.173 0-2.122-.953-2.122-2.124 0-1.17 0-2.12.949-2.12h.001c1.172 0 2.122.95 2.122 2.12s-.949 2.12-2.121 2.12z" fill="#0A66C2" />
-                            <path d="M20.447 20.452h-3.554v-5.568c0-1.328-.027-3.04-.157-3.04-1.328-.157-5.568.157-3.04-1.328h-3.554V20.452H3.344v-9.356h3.411v1.54h.046c.556-1.059 1.25-1.579 2.106-1.854V10.45c-1.42 0-2.486.86-2.923 2.062h-.01c-.13-.393-.205-.836-.205-1.314V1.597c0-1.17.95-2.12 2.121-2.12 1.173 0 2.124.95 2.124 2.12s-.95 2.12-2.121 2.12zM3.554 7.5c-1.173 0-2.122-.953-2.122-2.124 0-1.17.95-2.12.949-2.12h.001c1.172 0 2.122.95 2.122 2.12s-.949 2.12-2.121 2.12z" />
-                        </svg>
-                        <h3 class="text-xl font-semibold text-gray-800">LinkedIn</h3>
-                    </a>
-
-                    <!-- GitHub Card -->
-                    <a href="https://github.com/mona-fathi" class="p-6 bg-gray-50 rounded-lg card-hover transition-transform duration-300 flex flex-col items-center justify-center space-y-4">
-                        <!-- GitHub icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.577v-2.02c-3.342.727-4.04-1.612-4.04-1.612-.546-1.385-1.332-1.755-1.332-1.755-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.835 2.809 1.306 3.492 1.002.108-.778.419-1.306.762-1.605-2.665-.304-5.466-1.333-5.466-5.94 0-1.312.466-2.385 1.23-3.22-.124-.303-.535-1.52.117-3.176 0 0 1.003-.322 3.287 1.23a11.53 11.53 0 016 0c2.284-1.552 3.287-1.23 3.287-1.23.652 1.656.24 2.873.116 3.176.766.835 1.23 1.908 1.23 3.22 0 4.619-2.806 5.63-5.474 5.93.43.37.823 1.102.823 2.222v3.292c0 .317.21.69.825.577C20.565 21.8 24 17.302 24 12c0-6.627-5.373-12-12-12z" clip-rule="evenodd" />
-                        </svg>
-                        <h3 class="text-xl font-semibold text-gray-800">GitHub</h3>
-                    </a>
-                </div>
-            </div>
+<!-- Call to Action Section -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+        <div class="p-10 bg-gradient-to-r from-[#497dff] to-[#ec45a9] rounded-3xl text-center text-white w-full max-w-2xl shadow-xl">
+            <h2 class="text-3xl font-extrabold mb-4 leading-tight">Ready to Start Your Project?</h2>
+            <p class="text-lg mb-6">
+                Whether you have a complete vision or just an idea, I'm here to help turn it into a stunning Android application that users will love.
+            </p>
+            <!-- <a href="#" class="inline-block bg-white text-[#1f7ae2] px-8 py-4 rounded-full font-bold shadow-lg hover:bg-gray-100 transition duration-300">Let's Talk</a> -->
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-200 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+        <div class="mb-4 md:mb-0 text-center md:text-left">
+            <p class="text-sm text-gray-600">
+                © 2024 Mona Fathi. Crafting exceptional Android experiences.
+            </p>
+        </div>
+        <div class="flex items-center space-x-2 mb-4 md:mb-0">
+            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span class="text-sm text-gray-500 font-semibold">Available for projects</span>
+        </div>
+        <div class="flex space-x-4">
+            <a href="mailto:mona.fathi110@gmail.com" class="text-gray-500 hover:text-gray-800 transition-colors">
+                <i class="fas fa-envelope text-xl"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/monafathi" target="_blank" class="text-gray-500 hover:text-gray-800 transition-colors">
+                <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="https://github.com/mona-fathi" target="_blank" class="text-gray-500 hover:text-gray-800 transition-colors">
+                <i class="fab fa-github text-xl"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript for dynamic text and sticky nav -->
+<script>
+    const dynamicText = document.getElementById('dynamic-text');
+    const phrases = ['Modern Android Apps', 'Performance Optimization', 'Beautiful UI/UX Design'];
+    let index = 0;
+
+    setInterval(() => {
+        index = (index + 1) % phrases.length;
+        dynamicText.textContent = phrases[index];
+    }, 1000);
     
-    <!-- Footer -->
-    <footer class="bg-gray-100 text-gray-500 py-6">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 Mona Fathi. Built with passion for Android development.</p>
-        </div>
-    </footer>
-    
-    <script>
-        // Smooth scrolling for navigation links
+    // JavaScript for sticky navigation and mobile menu
+    document.addEventListener('DOMContentLoaded', () => {
+        const stickyNav = document.getElementById('sticky-nav');
+        const heroHeader = document.getElementById('hero-header');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const stickyMobileMenuButton = document.getElementById('sticky-mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu');
+        
+        // This function adds or removes the 'is-visible' class based on scroll position
+        const toggleStickyNav = () => {
+            const heroHeight = heroHeader.offsetHeight;
+            if (window.scrollY > heroHeight) {
+                stickyNav.classList.add('is-visible');
+            } else {
+                stickyNav.classList.remove('is-visible');
+            }
+        };
+
+        // Add the scroll event listener to the window
+        window.addEventListener('scroll', toggleStickyNav);
+
+        // Function to open and close the mobile menu
+        const toggleMobileMenu = () => {
+            mobileMenu.classList.toggle('hidden');
+            setTimeout(() => {
+                mobileMenu.classList.toggle('is-open');
+            }, 10);
+        };
+
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        stickyMobileMenuButton.addEventListener('click', toggleMobileMenu);
+        closeMenuButton.addEventListener('click', toggleMobileMenu);
+
+        // Smooth scroll for nav links and close menu on click
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                // Close the sticky nav if it's visible on click
+                if (stickyNav.classList.contains('is-visible')) {
+                    stickyNav.classList.remove('is-visible');
+                }
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+                // Close the mobile menu after clicking a link
+                if (mobileMenu.classList.contains('is-open')) {
+                    toggleMobileMenu();
+                }
             });
         });
+    });
+</script>
 
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    </script>
 </body>
 </html>
-Fher
