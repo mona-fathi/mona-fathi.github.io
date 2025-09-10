@@ -255,6 +255,16 @@
         .mobile-menu-links a:hover {
             color: #1a6ac9;
         }
+        .dynamic-text {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dynamic-text.is-fading {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
         
     </style>
 </head>
