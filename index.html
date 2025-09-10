@@ -372,7 +372,7 @@
             <div class="w-full md:w-1/2 flex justify-center mb-10 md:mb-0 relative">
                 <div class="about-image-container">
                     <!-- This is the corrected section to add your image -->
-                    <img src="imgs/mona-fathi.jpg"
+                    <img src="imgs/mona-fathi2.jpg"
                          alt="Mona Fathi"
                          class="w-full h-full rounded-full object-cover shadow-2xl">
                     <div class="floating-text top-right">
@@ -658,10 +658,21 @@
     const phrases = ['Modern Android Apps', 'Performance Optimization', 'Beautiful UI/UX Design'];
     let index = 0;
 
-    setInterval(() => {
-        index = (index + 1) % phrases.length;
-        dynamicText.textContent = phrases[index];
-    }, 1000);
+    function changeText() {
+        // Add a class to trigger the fade-out
+        dynamicText.classList.add('is-fading');
+
+        // Wait for the fade-out to complete (500ms) before changing text
+        setTimeout(() => {
+            index = (index + 1) % phrases.length;
+            dynamicText.textContent = phrases[index];
+            // Remove the class to trigger the fade-in
+            dynamicText.classList.remove('is-fading');
+        }, 500); // This delay should match the CSS transition duration
+    }
+
+    // Call the function every 3 seconds to loop through the phrases
+    setInterval(changeText, 3000);
     
     // JavaScript for sticky navigation and mobile menu
     document.addEventListener('DOMContentLoaded', () => {
